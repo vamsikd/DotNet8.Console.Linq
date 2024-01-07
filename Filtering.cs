@@ -20,6 +20,7 @@ namespace DotNet8.Console.Linq
         }
         public static void DistinctElementComparer(IList<Person> persons)
         {
+            // stops when finds the first macthing element
             var list = persons
                 .Distinct(new PersonComparer());
             foreach (var person in list)
@@ -29,6 +30,7 @@ namespace DotNet8.Console.Linq
         }
         public static void DistinctByElementComparer(IList<Person> persons)
         {
+            // stops when finds the first macthing element
             var list = persons
                 .DistinctBy(p => p.LastName);
             foreach (var person in list)
@@ -52,7 +54,7 @@ namespace DotNet8.Console.Linq
 
        public int GetHashCode(Person p)
         {
-            return p.LastName.GetHashCode();
+            return p.LastName!.GetHashCode();
         }
     }
 }
